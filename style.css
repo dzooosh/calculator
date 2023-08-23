@@ -55,12 +55,31 @@ main {
     min-height: 270px;
     border: 1px solid #0d4d75;
     padding: 5px;
+
 }
 
 .button {
     padding: 15px;
     background-color: #1d3557;
     border: 1px solid black;
+    cursor: pointer;
+}
+
+
+.button.op {
+    background-color: #1d3557;
+    color: #e63946;
+}
+
+.button:hover {
+    background-color: #457b9d;
+}
+
+#clear {
+    background-color: #e63946;
+}
+#delete {
+    background-color: #457b9d;
 }
 
 .buttonsframe {
