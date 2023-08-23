@@ -63,12 +63,14 @@ main {
     border: 1px solid black;
 }
 
-.buttons {
+.buttonsframe {
+    margin: 5px;
     background-color: black;
     padding: 5px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     text-align: center;
+    font-size: small;
 }
 
 footer {
