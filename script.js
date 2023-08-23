@@ -1,3 +1,4 @@
+// operation for the calculator
 function add(a, b) {
     return a + b;
 }
@@ -19,11 +20,6 @@ function divide(a, b) {
 
 // const ans = divide(['5', '/', '8']);
 // console.log(ans);
-
-// variables for each part of the calculator operation
-// const firstNum;
-// const operator;
-// const secondNum;
 
 // function operate that takes the variables and call above funcions
 function operate(arg) {
