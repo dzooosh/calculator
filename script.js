@@ -23,7 +23,7 @@ function divide(a, b) {
 
 // function operate that takes the variables and call above funcions
 function operate(arg) {
-    let [fn, operator, sn] = arg;
+    let [operator, fn, sn] = arg;
     // convert string to number
     fn = parseInt(fn);
     sn = parseInt(sn);
@@ -49,3 +49,24 @@ function operate(arg) {
     return result;
 
 }
+
+const displayValue = document.querySelector('.value');
+const button = document.querySelector('.button');
+const t1 = document.createElement('h1');
+let allvalues;
+
+// adding globa event listener
+function addGlobalEventListener(type, selector, callback) {
+    document.addEventListener(type, e => {
+        if (e.target.matches(selector)) callback(e)
+    })
+}
+
+addGlobalEventListener('click', '.button', e => {
+    console.log(e.target.textContent);
+    let text = e.target.textContent;
+    t1.textContent += text;
+    displayValue.append(t1);
+});
+
+// fn operator sn total operator number total

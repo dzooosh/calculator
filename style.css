@@ -46,8 +46,9 @@ main {
 .display {
     background-color: #f1faee;
     margin: 15px 5px 5px 5px;
-    height: 100px;
+    height: 80px;
     border: 1px solid black;
+    padding: 5px;
 }
 
 .buttons {
@@ -90,6 +91,19 @@ main {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     text-align: center;
     font-size: small;
+}
+
+.exp {
+    height: 20px;
+    border: 1px solid black;
+}
+
+.value {
+    text-align: right;
+    height: 55px;
+    border: 1px solid black;
+    color: black;
+
 }
 
 footer {
