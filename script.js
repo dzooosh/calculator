@@ -52,7 +52,7 @@ function operate(arg) {
 
 const displayValue = document.querySelector('.value');
 const button = document.querySelector('.button');
-const t1 = document.createElement('h1');
+let t1 = document.createElement('h1');
 let allvalues;
 
 // adding globa event listener
@@ -61,12 +61,28 @@ function addGlobalEventListener(type, selector, callback) {
         if (e.target.matches(selector)) callback(e)
     })
 }
-
-addGlobalEventListener('click', '.button', e => {
+// populates the display 
+addGlobalEventListener('click', '.button.no', e => {
     console.log(e.target.textContent);
     let text = e.target.textContent;
     t1.textContent += text;
     displayValue.append(t1);
+});
+
+// equals button
+addGlobalEventListener('click', '#equals', e => {
+   
+});
+
+// delete button
+addGlobalEventListener('click', '#delete', e => {
+    let del = t1.textContent;
+    t1.textContent = del.slice(0, -1);
+});
+
+// clear button
+addGlobalEventListener('click', '#clear', e => {
+    t1.textContent = '';
 });
 
 // fn operator sn total operator number total
