@@ -51,15 +51,15 @@ main {
     padding: 5px;
 }
 
-.buttons {
+.buttonsframe {
     margin: 10px 5px 5px 5px;
-    min-height: 270px;
+    min-height: 260px;
     border: 1px solid #0d4d75;
     padding: 5px;
 
 }
 
-.button {
+.button, .buton, .buttons {
     padding: 15px;
     background-color: #1d3557;
     border: 1px solid black;
@@ -67,7 +67,7 @@ main {
 }
 
 
-.button.op {
+.buttons.op {
     background-color: #1d3557;
     color: #e63946;
 }
