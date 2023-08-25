@@ -113,7 +113,12 @@ operations.forEach(op => {
 addGlobalEventListener('click', '.button', e => {
     // check if an operator has been clicked and renew number display
     if (operatorList.indexOf(allValue.slice(-1)) !== -1) {
-        t1.textContent = '';
+        if (allValue.slice(-1) === "=") {
+            allValue = allValue.slice(0, -1);
+            output = output.slice(0, -3);
+        }else{
+            t1.textContent = '';
+        }
     }
     if (t1.textContent.length <= 11) {
         // checking if the displayvalue == 0 when a number is pressed
