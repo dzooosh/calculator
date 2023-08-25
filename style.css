@@ -49,6 +49,8 @@ main {
     height: 80px;
     border: 1px solid black;
     padding: 5px;
+    display: flex;
+    flex-direction: column;
 }
 
 .buttonsframe {
@@ -96,15 +98,13 @@ main {
 .exp {
     height: 20px;
     color: black;
-    border: 1px solid black;
-    text-align: right;
+    text-align: left;
 }
 
 
 .value {
     text-align: right;
     height: 55px;
-    border: 1px solid black;
     color: black;
 
 }
