@@ -71,7 +71,7 @@ let output = '0';
 const operatorList = ['+', '-', '÷', '*', '=']
 let operator;
 
-
+up.textContent = '';
 t1.textContent = '0';
 displayValue.append(t1);
 
@@ -130,7 +130,8 @@ addGlobalEventListener('click', '.button', e => {
         allValue += e.target.textContent;
         output += e.target.textContent;
         t1.textContent += e.target.textContent;
-        
+        up.textContent = allValue;
+        upDisplay.append(up);
         console.log(allValue)
         console.log(output)
         displayValue.append(t1)
@@ -141,6 +142,7 @@ function clear() {
     t1.textContent = '0';
     allValue = '0';
     output = '0';
+    up.textContent = '';
 };
 
 // clear button 
@@ -150,9 +152,7 @@ addGlobalEventListener('click', '#clear', clear);
 addGlobalEventListener('click', '#delete', e => {
     let del = t1.textContent;
     t1.textContent = del.slice(0, -1);
+    up.textContent = up.textContent.slice(0, -1);
     allValue = allValue.slice(0, -1);
     output = output.slice(0, -1);
 });
-
-// up.textContent = allValue;
-// upDisplay.append(up);

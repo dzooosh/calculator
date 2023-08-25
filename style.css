@@ -93,11 +93,13 @@ main {
     text-align: center;
     font-size: small;
 }
-
 .exp {
     height: 20px;
+    color: black;
     border: 1px solid black;
+    text-align: right;
 }
+
 
 .value {
     text-align: right;
