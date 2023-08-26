@@ -27,8 +27,8 @@ function operate(arg) {
     let operator = arg[1];
     let sn = arg[2];
     // convert string to number
-    fn = parseInt(fn);
-    sn = parseInt(sn);
+    fn = Number(fn);
+    sn = Number(sn);
     let result = 0;
     switch(operator) {
         case '+':
@@ -58,7 +58,14 @@ function addGlobalEventListener(type, selector, callback) {
     })
 };
 
+function countOccurence(str, char) {
+    let count = 0;
 
+    [...str].forEach(str => {
+        if (str === char) count++;
+    })
+    return count;
+}
 const displayValue = document.querySelector('.value');
 const operations = document.querySelectorAll('.buttons.op')
 const buttons = document.querySelectorAll('.button');
@@ -78,16 +85,20 @@ displayValue.append(t1);
 // the operator buttons
 operations.forEach(op => {
     op.addEventListener("click", (e) => {
-        
-        // check if '=' was passed
+        // once the 2 numbers and operator is detected
         cal = output.split(' ').filter(item => item !== '');
         if (cal.length === 3) {
             console.log(cal)
             total = operate(cal);
             console.log(total);
             t1.textContent = total;
-            output = total;
-            allValue = total;
+            if (e.target.textContent === '=') {
+                output = '';
+                allValue = '';
+            } else {
+                output = total;
+                allValue = total;
+            }
         }
 
         //check if a operator has been selected
@@ -111,6 +122,14 @@ operations.forEach(op => {
 
 // number buttons
 addGlobalEventListener('click', '.button', e => {
+    // if one dot is detected disable the decimal point
+    if (countOccurence(t1.textContent, '.') > 1) {
+        if (e.target.textContent === '.') {
+            allValue += '';
+            output += '';
+            t1.textContent += '';
+        }
+    }
     // check if an operator has been clicked and renew number display
     if (operatorList.indexOf(allValue.slice(-1)) !== -1) {
         if (allValue.slice(-1) === "=") {
@@ -120,21 +139,25 @@ addGlobalEventListener('click', '.button', e => {
             t1.textContent = '';
         }
     }
+    // limiting the number length on display
     if (t1.textContent.length <= 11) {
         // checking if the displayvalue == 0 when a number is pressed
         if (t1.textContent === '0') {
-            t1.textContent = '';
-            output = '';
-            allValue = '';
+            if (e.target.textContent !== '.') {
+                t1.textContent = '';
+                output = '';
+                allValue = '';
+            }
         }
         allValue += e.target.textContent;
         output += e.target.textContent;
         t1.textContent += e.target.textContent;
         up.textContent = allValue;
         upDisplay.append(up);
-        console.log(allValue)
-        console.log(output)
-        displayValue.append(t1)
+        console.log(allValue);
+        console.log(output);
+        displayValue.append(t1);
+    
     }
 });
 
