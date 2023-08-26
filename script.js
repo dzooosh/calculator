@@ -119,17 +119,27 @@ operations.forEach(op => {
         
     })
 });
+// check the dot button
+addGlobalEventListener('click', '#dot', e => {
+    if (countOccurence(t1.textContent, '.') === 1) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    else {
+        allValue += e.target.textContent;
+        output += e.target.textContent;
+        t1.textContent += e.target.textContent;
+        up.textContent = allValue;
+        upDisplay.append(up);
+        // console.log(allValue);
+        // console.log(output);
+        displayValue.append(t1)
+    }
+});
 
 // number buttons
 addGlobalEventListener('click', '.button', e => {
     // if one dot is detected disable the decimal point
-    if (countOccurence(t1.textContent, '.') > 1) {
-        if (e.target.textContent === '.') {
-            allValue += '';
-            output += '';
-            t1.textContent += '';
-        }
-    }
     // check if an operator has been clicked and renew number display
     if (operatorList.indexOf(allValue.slice(-1)) !== -1) {
         if (allValue.slice(-1) === "=") {
@@ -143,10 +153,9 @@ addGlobalEventListener('click', '.button', e => {
     if (t1.textContent.length <= 11) {
         // checking if the displayvalue == 0 when a number is pressed
         if (t1.textContent === '0') {
-            if (e.target.textContent !== '.') {
-                t1.textContent = '';
-                output = '';
-                allValue = '';
+            t1.textContent = '';
+            output = '';
+            allValue = '';
             }
         }
         allValue += e.target.textContent;
@@ -154,12 +163,12 @@ addGlobalEventListener('click', '.button', e => {
         t1.textContent += e.target.textContent;
         up.textContent = allValue;
         upDisplay.append(up);
-        console.log(allValue);
-        console.log(output);
+        // console.log(allValue);
+        // console.log(output);
         displayValue.append(t1);
     
     }
-});
+);
 
 function clear() {
     t1.textContent = '0';

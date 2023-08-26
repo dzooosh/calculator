@@ -61,7 +61,7 @@ main {
 
 }
 
-.button, .buton, .buttons {
+.button, .buton, .buttons, .buttondot {
     padding: 15px;
     background-color: #1d3557;
     border: 1px solid black;
