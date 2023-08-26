@@ -121,6 +121,7 @@ operations.forEach(op => {
 });
 // check the dot button
 addGlobalEventListener('click', '#dot', e => {
+    // if it detects one dot on display disable dot
     if (countOccurence(t1.textContent, '.') === 1) {
         e.preventDefault();
         e.stopPropagation();
