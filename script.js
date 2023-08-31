@@ -119,6 +119,38 @@ operations.forEach(op => {
         
     })
 });
+
+// number buttons
+addGlobalEventListener('click', '.button', e => {
+    // check if an operator has been clicked and renew number display
+    if (operatorList.indexOf(allValue.slice(-1)) !== -1) {
+        if (allValue.slice(-1) === "=") {
+            allValue = allValue.slice(0, -1);
+            output = output.slice(0, -3);
+        }else{
+            t1.textContent = '';
+        }
+    }
+    // limiting the number length on display
+    if (t1.textContent.length <= 11) {
+        // checking if the displayvalue == 0 when a number is pressed
+        if (t1.textContent === '0') {
+            t1.textContent = '';
+            output = '';
+            allValue = '';
+        }
+        allValue += e.target.textContent;
+        output += e.target.textContent;
+        t1.textContent += e.target.textContent;
+        up.textContent = allValue;
+        upDisplay.append(up);
+        // console.log(allValue);
+        // console.log(output);
+        displayValue.append(t1);
+        
+    }
+}
+);
 // check the dot button
 addGlobalEventListener('click', '#dot', e => {
     // if it detects one dot on display disable dot
@@ -139,39 +171,6 @@ addGlobalEventListener('click', '#dot', e => {
         displayValue.append(t1)
     }}
 });
-
-// number buttons
-addGlobalEventListener('click', '.button', e => {
-    // if one dot is detected disable the decimal point
-    // check if an operator has been clicked and renew number display
-    if (operatorList.indexOf(allValue.slice(-1)) !== -1) {
-        if (allValue.slice(-1) === "=") {
-            allValue = allValue.slice(0, -1);
-            output = output.slice(0, -3);
-        }else{
-            t1.textContent = '';
-        }
-    }
-    // limiting the number length on display
-    if (t1.textContent.length <= 11) {
-        // checking if the displayvalue == 0 when a number is pressed
-        if (t1.textContent === '0') {
-            t1.textContent = '';
-            output = '';
-            allValue = '';
-            }
-        }
-        allValue += e.target.textContent;
-        output += e.target.textContent;
-        t1.textContent += e.target.textContent;
-        up.textContent = allValue;
-        upDisplay.append(up);
-        // console.log(allValue);
-        // console.log(output);
-        displayValue.append(t1);
-    
-    }
-);
 
 function clear() {
     t1.textContent = '0';
