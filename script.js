@@ -122,6 +122,8 @@ operations.forEach(op => {
 // check the dot button
 addGlobalEventListener('click', '#dot', e => {
     // if it detects one dot on display disable dot
+    if (t1.textContent <= 11) 
+    {
     if (countOccurence(t1.textContent, '.') === 1) {
         e.preventDefault();
         e.stopPropagation();
@@ -135,7 +137,7 @@ addGlobalEventListener('click', '#dot', e => {
         // console.log(allValue);
         // console.log(output);
         displayValue.append(t1)
-    }
+    }}
 });
 
 // number buttons
